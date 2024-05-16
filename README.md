@@ -8,11 +8,13 @@ Explain how to add an image to the megamenu in Shopify's Dawn theme, using the t
 
 <img width="1438" alt="Screenshot 2024-05-16 at 14 52 24" src="https://github.com/xervomotor/Meshki-interview/assets/122241297/5f3291d8-ad72-4054-b345-ef7ed5948cc0">
 
-### Answer
+### General Answer
 
-To add an image to Dawn's megamenu without hardcoding, there are 3 steps need to be done:
-1. Modify the theme structure to include a new section
+To add an image to Dawn's megamenu without hardcoding, there are 2 steps need to be done:
+1. Modify theme settings in `config/settings_schema.json` to allow admin to upload image for megamenu (creating user-friendly no-code interface like other existing element)
+2. Modify the header file `sections/header.liquid` to display the uploaded image in megamenu
 
+### Detailed Implementation
 
 ### References
 
