@@ -62,6 +62,32 @@ This indicates our Megamenu element can be added to admin panel for customisatio
 
 #### STEP 2 - Liquid Template
 
+Then, we can add a block of code in the `sections/header.liquid` file, to display the uploaded image in the megamenu, such as
+
+```
+{% if settings.megamenu_image %}
+  <div class="megamenu-image">
+    <img src="{{ settings.megamenu_image | img_url: 'master' }}" alt="Megamenu Image">
+  </div>
+{% endif %}
+```
+
+where
+- `{% if settings.megamenu_image %}` checks if the megamenu image is uploaded
+- `<img src="{{ settings.megamenu_image | img_url: 'master' }}" alt="Megamenu Image">` renders the image
+
+This is also following the structure of another existing component in `header.liquid`, as the example below:
+
+```
+<a href="{{ shop.url }}" class="site-header__logo-image">
+  {% if settings.logo %}
+    <img src="{{ settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+  {% endif %}
+</a>
+```
+
+We can also add some CSS styles to the image to ensure the position by adding a class and select that.
+
 ### References
 
 Most Relevant File: [header.liquid](https://github.com/Shopify/dawn/blob/main/sections/header.liquid)
