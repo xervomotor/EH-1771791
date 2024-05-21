@@ -100,7 +100,26 @@ Example on MESHKI’s website: [Megamenu Example](https://prnt.sc/3oW-cDRx763X)
 ### Objective
 Explain how to implement a "Load More" button at the end of a list of products on Shopify's collection template. The button should load the products from page 2 onwards without refreshing the web page.
 
-### Answer
+<img width="1075" alt="Screenshot 2024-05-20 at 14 48 49" src="https://github.com/xervomotor/Meshki-interview/assets/122241297/287c43cb-c72f-4cb3-8759-f573753531ef">
+
+### General Answer
+
+### Detailed Implementation
+
+#### STEP 1 - Add the button
+
+Add the 'Load More' button to the end of a product list on collection template, in `sections/main-collection-product-grid.liquid` with the following code
+
+```
+<button id="load-more" type="button">Load More</button>
+```
+
+This is similar to adding the image element to header from Question 1. 
+
+#### STEP 2 - Use AJAX to fetch additional products
+
+Create a `assets/loadmore.js` file, and include that in `theme.liquid`
+
 
 ### References
 
