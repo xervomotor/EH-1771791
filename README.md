@@ -159,9 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 We also need to consider the edge cases such as making the button disappear when reading the final page. We can do this by setting the button display to `none` under this condition.
 
+#### Explaination on updating without refreshing the page
 
+In our AJAX request, we directly append the new products to the existing product grid by this line
+```
+newProducts.forEach(product => productGrid.appendChild(product));
+```
 
-
+That means the product grid is getting more children, and it should work dynamically without refreshing the page.
 
 ### References
 
