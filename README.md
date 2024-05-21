@@ -118,8 +118,34 @@ This is similar to adding the image element to header from Question 1.
 
 #### STEP 2 - Use AJAX to fetch additional products
 
-Create a `assets/loadmore.js` file, and include that in `theme.liquid`
+Create a `assets/load-more.js` file, and include that in `layout/theme.liquid` to ensure global availibility, by
+```
+<script src="{{ 'load-more.js' | asset_url }}" defer="defer"></script>
+```
+just like including other js files in the existing code.
 
+Then, in the `load-more.js`, we can implement AJAX functionality to fetch next page of products and append them to the list, for example
+
+```
+// run the function when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // set a tracker for page, and initialise that to 1
+  let currentPage = 1;
+
+  // select the load more button and the product grid by their IDs
+  const loadMoreButton = document.getElementById('load-more');
+  const productGrid = document.getElementById('product-grid');
+
+  // increament page count when the load more button is clicked
+  loadMoreButton.addEventListener('click', ()=> {
+    currentPage++;
+
+    // AJAX request
+    // WIP
+
+  });
+});
+```
 
 ### References
 
