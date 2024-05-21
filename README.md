@@ -141,11 +141,27 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPage++;
 
     // AJAX request
-    // WIP
-
+    fetch(`someURL/page=${currentPage}`) // should be some URL that point to the product collection for the store
+      .then(response => response.text()) //parse the response
+      .then(data => {
+        // parse into DOM object
+        const parser = new DOMParser();
+        const htmlDocument = parser.parseFromString(data, 'text/html');
+    
+        // select all new products from the fetched response
+        const newProducts = htmlDocument.querySelectorAll('.product'); // not sure what are the product class, just an indication
+        newProducts.forEach(product => productGrid.appendChild(product)); // append new products to the exsiting grid
+      })
+      .catch(error => console.error('Error fetching products:', error));
   });
 });
 ```
+
+We also need to consider the edge cases such as making the button disappear when reading the final page. We can do this by setting the button display to `none` under this condition.
+
+
+
+
 
 ### References
 
